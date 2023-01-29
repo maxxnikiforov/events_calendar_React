@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  &__addEvent {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: aqua;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+
+    &-month {
+      width: 24px;
+      height: 20px;
+      background-image: url('../../../public/calendar.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: aquamarine;
+      }
+    }
+  }
+
+  &__selects {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    gap: 20px;
+    width: 240px;
+    height: 380px;
+    background-color: lightblue;
+  }
+
+  &__select-year {
+    margin-right: 20px;
+  }
+
+  &__month {
+    margin: 0 6px;
+    min-width: 150px;
+  }
+}
