@@ -1,6 +1,6 @@
 {
-  "homepage": "https://maxxnikiforov.github.io/template_react_ts/",
-  "name": "template_react_ts",
+  "homepage": "https://maxxnikiforov.github.io/events_calendar_React/",
+  "name": "events_calendar_react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
