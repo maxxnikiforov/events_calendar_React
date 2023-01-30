@@ -14,8 +14,6 @@ export const Calendar: React.FC<Props> = ({
 }) => {
   const monthData = getMonthData(year, monthes.indexOf(month));
 
-  console.log(monthes.indexOf(month), monthData);
-
   return (
     <div className="calendar">
       <table className="calendar__table">
