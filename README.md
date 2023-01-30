@@ -1,5 +1,7 @@
 App: Event Calendar.
 
+All data will save in localStorage.calendar object in JSON format.
+
 [DEMO LINK](https://maxxnikiforov.github.io/events_calendar_React/)
 
 includes:
