@@ -1,4 +1,6 @@
-[DEMO LINK](https://maxxnikiforov.github.io/template_react_ts/)
+App: Event Calendar.
+
+[DEMO LINK](https://maxxnikiforov.github.io/events_calendar_React/)
 
 includes:
 

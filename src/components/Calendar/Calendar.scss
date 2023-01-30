@@ -12,9 +12,19 @@
   }
 
   &__day {
+    width: 14%;
     border: 1px solid gray;
     text-align:left ;
     vertical-align: top;
+    padding-left: 8px;
+
+    &-name {
+      margin-top: 0;
+      font-size: 14px;
+    }
+  }
+
+  &__today {
+    background-color: aquamarine;
   }
 }
-

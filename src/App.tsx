@@ -9,7 +9,6 @@ function App() {
   const [month, setNewMonth] = useState<string>(monthes[currentDate.getMonth()]);
   const [year, setNewYear] = useState<number>(currentDate.getFullYear());
   
-  console.log(month, year);
   return (
     <div className="App">
       <Header

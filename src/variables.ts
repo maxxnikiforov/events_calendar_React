@@ -14,16 +14,16 @@ export const monthes = [
 ];
 
 export const days = [
-  'Mo',
-  'Tu',
-  'We',
-  'Th',
-  'Fr',
-  'Sa',
-  'Su'
+   'Su',
+   'Mo',
+   'Tu',
+   'We',
+   'Th',
+   'Fr',
+   'Sa'
 ];
 
-let years: number[] = [];
+const years: number[] = [];
 
 for (let i = 2023; i < 2055; i++) {
   years.push(i);
@@ -41,28 +41,29 @@ const getDaysInMonth = (date: Date) => {
   return date.getDate();
 };
 
-const getStartWeeksDay = (date: Date) => {
+const getStartWeeksDay = (year: number, month: number) => {
+  const date = new Date(year, month);
   const dayOfWeek = date.getDay();
-
+  
   if (dayOfWeek === 0) {
     return 6;
   }
 
-  return dayOfWeek - 1;
+  return (dayOfWeek - 1);
 };
 
 export const getMonthData = (year: number, month: number) => {
   let monthData: (Date | undefined)[][] = [];
   const date = new Date(year, month);
   const daysInMonth = getDaysInMonth(date);
-  const startWeeksDay = getStartWeeksDay(date);
+  const startWeeksDay = getStartWeeksDay(year, month);
   let day = 1;
 
   for (let i = 0; i < ((daysInMonth + startWeeksDay) / daysInWeek); i++) {
     monthData[i] = [];
 
     for (let j = 0; j < daysInWeek; j++) {
-      if ((i = 0 && j < startWeeksDay) || day > daysInMonth) {
+      if ((i === 0 && j < startWeeksDay) || day > daysInMonth) {
         monthData[i][j] = undefined;
       } else {
         monthData[i][j] = new Date(year, month, day++);

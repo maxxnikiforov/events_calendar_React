@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './AddForm.scss';
 
-export const AddForm: React.FC = () => {
+type Props = {
+  setOpenAddWindow: (arg: boolean) => void;
+}
+
+export const AddForm: React.FC<Props> = ({ setOpenAddWindow }) => {
   const [title, setTitle] = useState<string | undefined>('');
   const [description, setDescription] = useState<string | undefined>('');
   const [date, setDate] = useState<string | undefined>('');
@@ -27,12 +31,31 @@ export const AddForm: React.FC = () => {
     }
   }
 
-  console.log(title, description, date, time);
+  const submitHandler = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    const events = localStorage.calendar ? JSON.parse(localStorage.calendar)
+    : [];
+    const newIdea = {
+      'date': date,
+      'title': title,
+      'description': description,
+      'time': time,
+    };
+
+    events.push(newIdea);
+
+    localStorage.setItem('calendar', JSON.stringify(events));
+    setTitle('');
+    setDescription('');
+    setDate('');
+    setTime('');
+    setOpenAddWindow(false);
+  }
 
   return (
     <div className="form">
       <h4>Add new idea item</h4>
-      <form>
+      <form  onSubmit={submitHandler}>
           <span>Title*</span><br />
           <input
             className="form__input"
