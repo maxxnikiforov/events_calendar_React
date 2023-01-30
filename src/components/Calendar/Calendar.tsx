@@ -1,5 +1,6 @@
 import React from 'react';
-// import { getMonthData, monthes } from '../../variables';
+import classNames from 'classnames';
+import { getMonthData, monthes, days } from '../../variables';
 import './Calendar.scss';
 
 type Props = {
@@ -11,16 +12,7 @@ export const Calendar: React.FC<Props> = ({
   month,
   year
 }) => {
-  // const monthData = getMonthData(year, monthes.indexOf(month));
-
-  // console.log(monthData);
-  const monthData: (Date | undefined)[][] = [
-    [undefined, undefined, new Date(), new Date(), new Date(), new Date(), new Date(),],
-    [new Date(), new Date(), new Date(), new Date(), new Date(), new Date(), new Date(),],
-    [new Date(), new Date(), new Date(), new Date(), new Date(), new Date(), new Date(),],
-    [new Date(), new Date(), new Date(), new Date(), new Date(), new Date(), new Date(),],
-    [new Date(), new Date(), new Date(), new Date(), undefined, undefined, undefined]
-  ];
+  const monthData = getMonthData(year, monthes.indexOf(month));
 
   return (
     <div className="calendar">
@@ -30,7 +22,17 @@ export const Calendar: React.FC<Props> = ({
             <tr key={index} className="calendar__week">
               {week.map((day, index) =>
                 day ?
-                 <td className="calendar__day" key={index}>{day.getDate()}</td>
+                 <td 
+                   className={classNames('calendar__day', {
+                    'calendar__today': day.getDate() === new Date().getDate() &&
+                    day.getMonth() === new Date().getMonth() &&
+                    day.getFullYear() === new Date().getFullYear()
+                   })}
+                   key={index}
+                 >
+                  <p className="calendar__day-name">{days[day.getDay()]}</p>
+                  {day.getDate()}
+                  </td>
                  :
                  <td key={index} />
               )}
@@ -38,7 +40,6 @@ export const Calendar: React.FC<Props> = ({
           )}
         </tbody>
       </table>
-      Calendar template
     </div>
   );
 }

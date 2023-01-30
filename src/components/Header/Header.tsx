@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AddForm } from '../AddForm/AddForm';
-import { monthes, days, years } from '../../variables';
+import { monthes, years } from '../../variables';
 import './Header.scss';
 
 type Props = {
@@ -16,11 +16,8 @@ export const Header: React.FC<Props> = ({
   year,
   setNewYear
 }) => {
-  // let currentDate = new Date();
   const [openAddWindow, setOpenAddWindow] = useState<boolean>(false);
   const [openSearchWindow, setOpenSearchWindow] = useState<boolean>(false);
-  // const [month, setNewMonth] = useState(monthes[currentDate.getMonth()]);
-  // const [year, setNewYear] = useState(currentDate.getFullYear());
 
   const addHandler = () => {
     setOpenAddWindow(!openAddWindow);
@@ -52,8 +49,6 @@ export const Header: React.FC<Props> = ({
     setNewMonth(monthes[date.getMonth()]);
   }
 
-  console.log(month, monthes.indexOf(month));
-
   return (
     <div className="header">
       <button 
@@ -63,7 +58,7 @@ export const Header: React.FC<Props> = ({
         {openAddWindow && `-`}
         {!openAddWindow && `+`}
       </button>
-      {openAddWindow && <AddForm />}
+      {openAddWindow && <AddForm setOpenAddWindow={setOpenAddWindow} />}
       <div className="header__search">
         <button className="header__search-left"
           onClick={handlerPrevButton}
