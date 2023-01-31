@@ -1,0 +1,38 @@
+.form {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 240px;
+  height: 380px;
+  background-color: lightblue;
+  text-align: center;
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+
+  &__input {
+    width: 200px;
+    min-height: 30px;
+    border-radius: 6px;
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    width: 72px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 24px auto 0;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: aquamarine;
+    }
+  }
+}
