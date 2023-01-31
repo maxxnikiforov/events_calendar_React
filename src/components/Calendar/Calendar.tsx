@@ -31,13 +31,6 @@ export const Calendar: React.FC<Props> = ({
     setEditFormOpen(!editFormOpen)
   };
 
-  console.log(notes,
-    +(notes[0].date).slice(0, 4),
-    +(notes[0].date).slice(5, 7),
-    +(notes[0].date).slice(8),
-    monthNotes
-    );
-
   return (
     <div className="calendar">
       <table className="calendar__table">
@@ -64,7 +57,10 @@ export const Calendar: React.FC<Props> = ({
                     >
                       ?
                     </button>}
-                  {editFormOpen && <EditForm day={day} editFormOpener={editFormOpener} />}
+                  {(editFormOpen && monthNotes.some(note => day.getDate() ===
+                   +note.date.slice(8) &&
+                    day.getFullYear() === +note.date.slice(0, 4))) &&
+                   <EditForm day={day} editFormOpener={editFormOpener} />}
                   </td>
                  :
                  <td key={index} />

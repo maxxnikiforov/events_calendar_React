@@ -16,8 +16,6 @@ export const EditForm: React.FC<Props> = ({ day, editFormOpener }) => {
     setDescription(e.target.value);
   };
 
-  console.log(day);
-
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'title':
@@ -71,7 +69,6 @@ export const EditForm: React.FC<Props> = ({ day, editFormOpener }) => {
             type="text"
             name="title"
             value={title}
-            required
             placeholder="Title goes here"
             onChange={inputHandler}
           />
@@ -100,7 +97,7 @@ export const EditForm: React.FC<Props> = ({ day, editFormOpener }) => {
             placeholder="stert of event"
             onChange={inputHandler}
           />
-          <button className="form__submit" type="submit">Save</button>
+          <button className="form__submit" type="submit">Edit</button>
       </form>
     </div>
   );
