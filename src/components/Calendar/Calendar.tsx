@@ -47,15 +47,21 @@ export const Calendar: React.FC<Props> = ({
                    })}
                    key={index}
                  >
-                  <p className="calendar__day-name">{days[day.getDay()]}</p>
-                  {day.getDate()}
+                  <div className={classNames('calendar__day-container', {
+                    'calendar__day-weekend': days[day.getDay()] === 'Su' ||
+                    days[day.getDay()] === 'Sa'
+                  })}>
+                    <p className="calendar__day-name">{days[day.getDay()]}</p>
+                    {day.getDate()}             
+                  </div>
+                  
                   {monthNotes.some(note => day.getDate() ===
                    +note.date.slice(8) &&
                     day.getFullYear() === +note.date.slice(0, 4)) &&
                     <button className="calendar__note"
                       onClick={editFormOpener}
                     >
-                      ?
+                      notes
                     </button>}
                   {(editFormOpen && monthNotes.some(note => day.getDate() ===
                    +note.date.slice(8) &&

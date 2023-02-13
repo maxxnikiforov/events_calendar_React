@@ -38,6 +38,17 @@
         background-color: aquamarine;
       }
     }
+
+    &-left, &-right {
+      border: 1px solid rgb(128, 128, 128);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: aqua;
+      }
+    }
   }
 
   &__selects {
